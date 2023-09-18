@@ -1,4 +1,12 @@
-# מודול לניהול המסך הראשי של pygame.
-# מודול זה יחזיק משתנה עבור המסך הראשי של pygame, ויכיל את כל ה מתודות לציור
-# האובייקטים על המסך.
+import pygame
+import consts
+
+def create_screen():
+    pygame.init()
+    size = (consts.BOARD_GRID_ROWS, consts.BOARD_GRID_COLS)
+    screen = pygame.display.set_mode(size)
+    while True:
+        screen.fill(consts.FIELD_COLOR)
+        pygame.display.flip()
+
 
