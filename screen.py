@@ -23,6 +23,7 @@ def create_screen():
     resized_flag_image = pygame.transform.scale(flag, (60, 50))
     screen.blit(resized_flag_image, (940,447))
 
+    #soldier
     soldier = pygame.image.load('soldier.png')
     resized_soldier_image = pygame.transform.scale(soldier, (75, 68))
     screen.blit(resized_soldier_image, (0, 5))
