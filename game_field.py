@@ -14,11 +14,11 @@ def create_field_matrix():
 
 
 def draw_grid():
-    block_size = 20
-    for x in range(0, consts.WINDOW_WIDTH, block_size):
-        for y in range(0, consts.WINDOW_LENGTH, block_size):
-            rect = pygame.Rect(x, y, block_size, block_size)
-            pygame.draw.rect(screen.scrn, consts.WHITE, rect, 1)
+    screen.scrn.fill(consts.BLACK)
+    for x in range(consts.WINDOW_WIDTH):
+        for y in range(consts.WINDOW_LENGTH):
+            rect = pygame.Rect(x*consts.GRID_SIZE, y*consts.GRID_SIZE, consts.GRID_SIZE, consts.GRID_SIZE)
+            pygame.draw.rect(screen.scrn, consts.GREEN, rect, 1)
     pygame.display.flip()
 
 # def create_mine():
