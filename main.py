@@ -17,12 +17,12 @@ def main():
     gamefield = game_field.create_field_matrix()
     game_field.draw_flag(gamefield)
     solider = soldier.draw_solider(gamefield)
-    handle_user_events(gamefield)
+    handle_user_events(gamefield, solider, scrn)
 
     # while state["is_window_open"]:
 
 
-def handle_user_events(gamefield, scrn, solider):
+def handle_user_events(gamefield, solider, scrn):
     running = True
     while running:
 
@@ -39,16 +39,21 @@ def handle_user_events(gamefield, scrn, solider):
                     running = False
 
                 elif event.key == pygame.K_LEFT:
-                    soldier.move_left(scrn, solider)
+                    soldier.move_left(solider)
+                    pygame.display.update()
 
                 elif event.key == pygame.K_RIGHT:
-                    soldier.move_right(scrn, solider)
+                    soldier.move_right(solider)
+                    pygame.display.update()
 
                 elif event.key == pygame.K_UP:
-                    soldier.move_up(scrn, solider)
+                    soldier.move_up(solider)
+
+                    pygame.display.update()
 
                 elif event.key == pygame.K_DOWN:
-                    soldier.move_down(scrn, solider)
+                    soldier.move_down(solider)
+                    pygame.display.update()
 
 
 if __name__ == '__main__':
