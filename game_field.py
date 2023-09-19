@@ -17,9 +17,16 @@ def draw_grid():
     screen.scrn.fill(consts.BLACK)
     for x in range(consts.WINDOW_WIDTH):
         for y in range(consts.WINDOW_LENGTH):
-            rect = pygame.Rect(x*consts.GRID_SIZE, y*consts.GRID_SIZE, consts.GRID_SIZE, consts.GRID_SIZE)
+            rect = pygame.Rect(x * consts.GRID_SIZE, y * consts.GRID_SIZE, consts.GRID_SIZE, consts.GRID_SIZE)
             pygame.draw.rect(screen.scrn, consts.GREEN, rect, 1)
     pygame.display.flip()
+
+
+def draw_flag(gamefield):
+    screen.scrn.blit(consts.FLAG_IMG,
+                     (consts.NEW_FLAG_WIDTH, consts.NEW_FLAG_LENGTH))
+    gamefield[consts.NEW_FLAG_WIDTH][consts.NEW_FLAG_LENGTH] = consts.FLAG
+    pygame.display.update()
 
 # def create_mine():
 #     pass
