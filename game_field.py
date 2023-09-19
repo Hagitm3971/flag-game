@@ -32,8 +32,8 @@ def draw_flag(gamefield):
 
 def draw_mine(gamefield):
     for i in range(20):
-        x = random.randint(0, consts.WINDOW_WIDTH)
-        y = random.randint(0, consts.WINDOW_LENGTH)
+        x = random.randint(0, consts.WINDOW_WIDTH - (consts.BOARD_GRID_ROWS * 2))
+        y = random.randint(0, consts.WINDOW_LENGTH - (consts.BOARD_GRID_COLS * 2))
         gamefield[x//consts.GRID_SIZE][y//consts.GRID_SIZE] = consts.MINE
         screen.scrn.blit(consts.MINE_IMG, (x, y))
 
