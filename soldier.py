@@ -13,20 +13,21 @@ def draw_solider(gamefield):
 
 
 def move_left(scrn, solider):
-    solider["x_val"] += 1
-    scrn.blit(consts.PLAYER_IMG, (solider["x_val"] * consts.GRID_SIZE, solider["x_val"] * consts.GRID_SIZE))
+    solider["x_val"] += 1 * consts.GRID_SIZE
+    scrn.blit(consts.PLAYER_IMG, (solider["x_val"] * consts.GRID_SIZE, solider["y_val"] * consts.GRID_SIZE))
 
 
 def move_right(scrn, solider):
-    solider["x_val"] -= 1
-    scrn.blit(consts.PLAYER_IMG, (solider["x_val"], solider["x_val"]))
+    solider["x_val"] -= 1 * consts.GRID_SIZE
+    scrn.blit(consts.PLAYER_IMG, (solider["x_val"] * consts.GRID_SIZE, solider["y_val"] * consts.GRID_SIZE))
 
 
 def move_up(scrn, solider):
-    solider["y_val"] -= 1
-    scrn.blit(consts.PLAYER_IMG, (solider["x_val"], solider["x_val"]))
+    solider["y_val"] -= 1 * consts.GRID_SIZE
+    scrn.blit(consts.PLAYER_IMG, (solider["x_val"] * consts.GRID_SIZE, solider["y_val"] * consts.GRID_SIZE))
 
 
 def move_down(scrn, solider):
-    solider["y_val"] += 1
-    scrn.blit(consts.PLAYER_IMG, (solider["x_val"], solider["x_val"]))
+    solider["y_val"] += 1 * consts.GRID_SIZE
+    scrn.blit(consts.PLAYER_IMG, (solider["x_val"] * consts.GRID_SIZE, solider["y_val"] * consts.GRID_SIZE))
+

@@ -1,6 +1,7 @@
 import consts
 import pygame
 import screen
+import random
 
 
 def create_field_matrix():
@@ -23,15 +24,20 @@ def draw_grid():
 
 
 def draw_flag(gamefield):
-    screen.scrn.blit(consts.FLAG_IMG,
-                     (consts.NEW_FLAG_WIDTH, consts.NEW_FLAG_LENGTH))
+    # screen.scrn.blit(consts.FLAG_IMG,
+    #                  (consts.NEW_FLAG_WIDTH * consts.GRID_SIZE, consts.NEW_FLAG_LENGTH * consts.GRID_SIZE))
     gamefield[consts.NEW_FLAG_WIDTH][consts.NEW_FLAG_LENGTH] = consts.FLAG
-    pygame.display.update()
+    # pygame.display.update()
 
-# def create_mine():
-#     pass
-#
-#
+
+def draw_mine(gamefield):
+    for i in range(20):
+        x = random.randint(0, consts.WINDOW_WIDTH)
+        y = random.randint(0, consts.WINDOW_LENGTH)
+        gamefield[x//consts.GRID_SIZE][y//consts.GRID_SIZE] = consts.MINE
+        screen.scrn.blit(consts.MINE_IMG, (x, y))
+
+
 # def create_flag(game_matrix):
 #     for i in range(len(game_matrix)):
 #         for j in range(len(game_matrix[i])):

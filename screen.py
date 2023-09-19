@@ -2,37 +2,15 @@ import pygame
 import consts
 import random
 
-def create_screen():
-    #screen
-    pygame.init()
-    size = (consts.BOARD_GRID_ROWS, consts.BOARD_GRID_COLS)
-    screen = pygame.display.set_mode(size)
-    screen.fill(consts.FIELD_COLOR)
-    pygame.display.update()
+scrn = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_LENGTH))
 
-    #grass
-    grass = pygame.image.load('grass.png')
-    resized_grass_image = pygame.transform.scale(grass, (45, 30))
+
+def draw_screen():
+    scrn.fill(consts.FIELD_COLOR)
     for i in range(20):
-        x = random.randint(0, 900)
-        y = random.randint(0, 450)
-        screen.blit(resized_grass_image, (x, y))
-
-    #flag
-    flag = pygame.image.load('flag.png')
-    resized_flag_image = pygame.transform.scale(flag, (60, 50))
-    screen.blit(resized_flag_image, (940,447))
-
-    #soldier
-    soldier = pygame.image.load('soldier.png')
-    resized_soldier_image = pygame.transform.scale(soldier, (75, 68))
-    screen.blit(resized_soldier_image, (0, 5))
-
+        x = random.randint(0, consts.WINDOW_WIDTH)
+        y = random.randint(0, consts.WINDOW_LENGTH)
+        scrn.blit(consts.GRASS_IMG, (x, y))
+    scrn.blit(consts.FLAG_IMG,
+                     (consts.NEW_FLAG_WIDTH * consts.GRID_SIZE, consts.NEW_FLAG_LENGTH * consts.GRID_SIZE))
     pygame.display.update()
-
-    status = True
-    while (status):
-        for i in pygame.event.get():
-            if i.type == pygame.QUIT:
-                status = False
-    pygame.quit()
